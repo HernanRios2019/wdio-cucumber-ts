@@ -27,10 +27,13 @@ export class CartPage extends BasePage {
   }
 
   async getCartItems(): Promise<string[]> {
-    const items = await $$(".inventory_item_name");
-    return Promise.all(items.map((item) => item.getText()));
+    const elements = await browser.$$(".inventory_item_name");
+    const texts: string[] = [];
+    for (const el of elements) {
+      texts.push(await el.getText());
+    }
+    return texts;
   }
-
   async isProductInCart(productName: string): Promise<boolean> {
     const items = await this.getCartItems();
     return items.some((name) =>
@@ -39,8 +42,10 @@ export class CartPage extends BasePage {
   }
 
   async getItemCount(): Promise<number> {
-    const items = await $$(".cart_item");
-    return items.length;
+    const items = await browser.$$(".cart_item");
+    let count = 0;
+    for (const _ of items) count++;
+    return count;
   }
 
   async proceedToCheckout(): Promise<void> {
