@@ -2,6 +2,34 @@
 
 This project automates end-to-end scenarios for the SauceDemo website using WebdriverIO, Cucumber, and TypeScript.
 
+## Setup and Execution
+
+### Prerequisites
+
+Before running the tests, make sure you have the following installed:
+
+- Node.js
+- npm
+- Google Chrome
+
+### Installation
+
+Clone the repository and install the project dependencies:
+
+```bash
+npm install
+```
+
+### Run Tests
+
+Execute the automated test suite with:
+
+```bash
+npm run wdio
+```
+
+This command runs WebdriverIO using the `wdio.conf.ts` configuration file. The tests are executed against the SauceDemo website and the results are displayed in the terminal through the configured reporter.
+
 ## Automated Scenarios
 
 The automated coverage focuses on the Login and Checkout flows because they are core features for any e-commerce application.
